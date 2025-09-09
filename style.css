@@ -1,0 +1,16 @@
+:root {
+  --col02: #c8ffbe;
+  --col01: #00916e;
+}
+
+body {
+  background-color: var(--col02);
+  color: var(--col01);
+}
+
+p {
+  display: flex;
+  margin-top: 50%;
+  margin-bottom: 50%;
+  justify-content: center;
+}
