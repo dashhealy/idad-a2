@@ -8,10 +8,13 @@ body {
   color: var(--col01);
 }
 
-div {
+img {
+  height: 200px;
+}
+
+.imageDisplay {
   display: flex;
-  margin-top: 20%;
-  margin-bottom: 20%;
+  align-items: center;
   justify-content: center;
-  font-size: 10rem;
+  gap: 2rem;
 }

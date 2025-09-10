@@ -1,4 +1,7 @@
-const timeDisplay = document.getElementById("timeDisplay");
+const hoursDiplay = document.getElementById("hoursImg");
+const minutesDiplay = document.getElementById("minutesImg");
+const secondsDiplay = document.getElementById("secondsImg");
+const season = "summer";
 
 setInterval(checkTime, 1000);
 
@@ -9,34 +12,41 @@ function checkTime() {
   let hours = systemDate.getHours();
   let minutes = systemDate.getMinutes();
   let seconds = systemDate.getSeconds();
-  //let milliseconds = systemDate.getMilliseconds();
 
   let month = systemDate.getMonth();
   month = month + 1;
-  seasonColour(month);
 
   if (hours > 12) {
     hours = hours - 12;
   }
 
-  timeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
-
-  //let imgName = `${month}${hours}`;
-  //console.log(imgName);
+  timeUI(month, hours, minutes, seconds);
 }
 
-function seasonColour(month) {
+function timeUI(month, hours, minutes, seconds) {
   if (month === 12 || month === 1 || month === 2) {
+    let season = "Summer";
     document.documentElement.style.setProperty("--col02", "#f3ebabff");
-    document.documentElement.style.setProperty("--col01", "#ebd661ff");
+    hoursDiplay.src = `assets/${season}${hours}.png`;
+    minutesDiplay.src = `assets/${season}${minutes}.png`;
+    secondsDiplay.src = `assets/${season}${seconds}.png`;
   } else if (month === 3 || month === 4 || month === 5) {
-    document.documentElement.style.setProperty("--col01", "#e69449ff");
+    let season = "autumn";
     document.documentElement.style.setProperty("--col02", "#f4cc90ff");
+    hoursDiplay.src = `assets/${season}${hours}.png`;
+    minutesDiplay.src = `assets/${season}${minutes}.png`;
+    secondsDiplay.src = `assets/${season}${seconds}.png`;
   } else if (month === 6 || month === 7 || month === 8) {
-    document.documentElement.style.setProperty("--col01", "#4d9ddeff");
+    let season = "winter";
     document.documentElement.style.setProperty("--col02", "#9ed3f1ff");
+    hoursDiplay.src = `assets/${season}${hours}.png`;
+    minutesDiplay.src = `assets/${season}${minutes}.png`;
+    secondsDiplay.src = `assets/${season}${seconds}.png`;
   } else {
-    document.documentElement.style.setProperty("--col01", "#00916e");
+    let season = "spring";
     document.documentElement.style.setProperty("--col02", "#c8ffbe");
+    hoursDiplay.src = `assets/${season}${hours}.png`;
+    minutesDiplay.src = `assets/${season}${minutes}.png`;
+    secondsDiplay.src = `assets/${season}${seconds}.png`;
   }
 }
