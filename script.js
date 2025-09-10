@@ -20,6 +20,9 @@ function checkTime() {
   }
 
   timeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+
+  //let imgName = `${month}${hours}`;
+  //console.log(imgName);
 }
 
 function seasonColour(month) {
