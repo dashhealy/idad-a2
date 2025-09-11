@@ -1,6 +1,7 @@
 :root {
   --col02: #c8ffbe;
   --col01: #00916e;
+  --col03: #6dd6ac;
 }
 
 body {
@@ -11,6 +12,8 @@ body {
 
 img {
   height: 200px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .imageDisplay {
@@ -19,10 +22,49 @@ img {
   justify-content: center;
   gap: 2rem;
   margin-bottom: 2rem;
+  border-style: solid;
+  border-color: var(--col03);
+  border-radius: 1rem;
+  border-width: 0.75rem;
+}
+
+.bodyCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 1400px;
+  gap: 2rem;
+}
+
+.sliderCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 1400px;
+}
+
+button {
+  border: none;
+  background-color: var(--col01);
+  color: var(--col02);
+  border-radius: 1rem;
+  font-size: 7rem;
+  width: 200px;
+  height: 200px;
+}
+
+.buttonCont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
 }
 
 input[type="range"] {
-  width: 45%;
+  width: 100%;
   margin: 9.4px 0;
   background-color: transparent;
   -webkit-appearance: none;
@@ -31,7 +73,7 @@ input[type="range"]:focus {
   outline: none;
 }
 input[type="range"]::-webkit-slider-runnable-track {
-  background: #6dd6ac;
+  background: var(--col03);
   border-radius: 10.8px;
   width: 100%;
   height: 31.2px;
@@ -41,16 +83,16 @@ input[type="range"]::-webkit-slider-thumb {
   margin-top: -9.6px;
   width: 50px;
   height: 50px;
-  background: #00916e;
+  background: var(--col01);
   border-radius: 50px;
   cursor: pointer;
   -webkit-appearance: none;
 }
 input[type="range"]:focus::-webkit-slider-runnable-track {
-  background: #81dcb7;
+  background: var(--col03);
 }
 input[type="range"]::-moz-range-track {
-  background: #6dd6ac;
+  background: var(--col03);
   border-radius: 10.8px;
   width: 100%;
   height: 31.2px;
@@ -59,7 +101,7 @@ input[type="range"]::-moz-range-track {
 input[type="range"]::-moz-range-thumb {
   width: 50px;
   height: 50px;
-  background: #00916e;
+  background: var(--col01);
   border-radius: 50px;
   cursor: pointer;
 }
@@ -73,37 +115,32 @@ input[type="range"]::-ms-track {
   cursor: pointer;
 }
 input[type="range"]::-ms-fill-lower {
-  background: #59d0a1;
-  border: 0.2px solid #010101;
+  background: var(--col03);
+  border: 0.2px solid var(--col03);
   border-radius: 21.6px;
 }
 input[type="range"]::-ms-fill-upper {
-  background: #6dd6ac;
-  border: 0.2px solid #010101;
+  background: var(--col03);
+  border: 0.2px solid var(--col03);
   border-radius: 21.6px;
 }
 input[type="range"]::-ms-thumb {
   width: 50px;
   height: 50px;
-  background: #00916e;
-  border: 10px solid rgba(0, 0, 0, 0);
+  background: var(--col01);
+  border: 10px solid var(--col01);
   border-radius: 50px;
   cursor: pointer;
   margin-top: 0px;
-  /*Needed to keep the Edge thumb centred*/
 }
 input[type="range"]:focus::-ms-fill-lower {
-  background: #6dd6ac;
+  background: var(--col03);
 }
 input[type="range"]:focus::-ms-fill-upper {
-  background: #81dcb7;
+  background: var(--col03);
 }
-/*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
-how to remove the virtical space around the range input in IE*/
 @supports (-ms-ime-align: auto) {
-  /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
   input[type="range"] {
     margin: 0;
-    /*Edge starts the margin from the thumb, not the track as other browsers do*/
   }
 }

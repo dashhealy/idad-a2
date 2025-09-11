@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assignment 2</title>
     <link rel="stylesheet" href="style.css" />
-    <!--<script src="helperFunctions.js" defer></script>
-    <script src="toneSetup.js" defer></script>-->
     <script src="script.js" defer></script>
-    <!--<script src="UIcontrols.js" defer></script>-->
   </head>
   <body></body>
 </html>
@@ -19,9 +16,14 @@
   <img src="" id="secondsImg" />
 </div>
 
-<input type="range" id="volume" min="0" max="100" />
-<p id="meterOutput"></p>
-
-<input type="button" />
-<input type="button" />
-<input type="button" />
+<div class="bodyCont">
+  <div class="sliderCont">
+    <input type="range" id="volume" min="0" max="100" />
+    <input type="range" id="pitch" min="0" max="100" />
+  </div>
+  <div class="buttonCont">
+    <button type="button" id="reverb" title="〰" />
+    <button type="button" id="lowpass" />
+    <button type="button" id="highpass" />
+  </div>
+</div>
