@@ -39,16 +39,12 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 input[type="range"]::-webkit-slider-thumb {
   margin-top: -9.6px;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
+  background: #00916e;
   border-radius: 50px;
   cursor: pointer;
   -webkit-appearance: none;
-  background-image: url("assets/Autumn0.png");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  cursor: pointer;
 }
 input[type="range"]:focus::-webkit-slider-runnable-track {
   background: #81dcb7;

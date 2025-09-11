@@ -16,10 +16,6 @@ function checkTime() {
   let month = systemDate.getMonth();
   month = month + 1;
 
-  if (hours > 12) {
-    hours = hours - 12;
-  }
-
   timeUI(month, hours, minutes, seconds);
 }
 
