@@ -14,8 +14,7 @@ function checkTime() {
   let seconds = systemDate.getSeconds();
 
   let month = systemDate.getMonth();
-  //month = month + 1;
-  month = 6;
+  month = month + 1;
 
   timeUI(month, hours, minutes, seconds);
 }
@@ -55,3 +54,9 @@ function timeUI(month, hours, minutes, seconds) {
     secondsDiplay.src = `assets/${season}${seconds}.png`;
   }
 }
+
+//create a synth and connect it to the main output (your speakers)
+const synth = new Tone.Synth().toDestination();
+
+//play a middle 'C' for the duration of an 8th note
+synth.triggerAttackRelease("C4", "8n");
