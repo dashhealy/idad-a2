@@ -54,6 +54,7 @@ button {
   font-size: 7rem;
   width: 200px;
   height: 200px;
+  cursor: pointer;
 }
 
 .buttonCont {
@@ -63,6 +64,15 @@ button {
   gap: 3rem;
 }
 
+button:hover {
+  background-color: var(--col03);
+}
+
+button:active {
+  scale: 0.9;
+}
+
+/* range style information, omfg why is this so complicated dawg */
 input[type="range"] {
   width: 100%;
   margin: 9.4px 0;
