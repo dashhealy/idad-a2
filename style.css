@@ -50,7 +50,7 @@ button {
   border: none;
   background-color: var(--col01);
   color: var(--col02);
-  border-radius: 1rem;
+  border-radius: 10rem;
   font-size: 7rem;
   width: 200px;
   height: 200px;
