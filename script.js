@@ -29,7 +29,7 @@ function timeUI(month, hours, minutes, seconds) {
     minutesDiplay.src = `assets/${season}${minutes}.png`;
     secondsDiplay.src = `assets/${season}${seconds}.png`;
   } else if (month === 3 || month === 4 || month === 5) {
-    let season = "autumn";
+    let season = "Autumn";
     document.documentElement.style.setProperty("--col01", "#e89f49");
     document.documentElement.style.setProperty("--col02", "#f4cc90");
     document.documentElement.style.setProperty("--col03", "#e5ac73");
@@ -37,7 +37,7 @@ function timeUI(month, hours, minutes, seconds) {
     minutesDiplay.src = `assets/${season}${minutes}.png`;
     secondsDiplay.src = `assets/${season}${seconds}.png`;
   } else if (month === 6 || month === 7 || month === 8) {
-    let season = "winter";
+    let season = "Winter";
     document.documentElement.style.setProperty("--col01", "#3366cc");
     document.documentElement.style.setProperty("--col02", "#9ed3f1");
     document.documentElement.style.setProperty("--col03", "#6c94e6");
@@ -45,7 +45,7 @@ function timeUI(month, hours, minutes, seconds) {
     minutesDiplay.src = `assets/${season}${minutes}.png`;
     secondsDiplay.src = `assets/${season}${seconds}.png`;
   } else {
-    let season = "spring";
+    let season = "Spring";
     document.documentElement.style.setProperty("--col01", "#00916e");
     document.documentElement.style.setProperty("--col02", "#c8ffbe");
     document.documentElement.style.setProperty("--col03", "#6dd6ac");
