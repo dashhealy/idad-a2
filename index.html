@@ -7,10 +7,18 @@
     <script src="http://unpkg.com/tone"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="UI.js" defer></script>
-    <script src="synth.js" defer></script>
+    <!-- <script src="synth.js" defer></script> -->
   </head>
   <body></body>
 </html>
+
+<dialog id="introDialog">
+  <p>
+    This synthesizer will make some noise, please check your system's volume
+    setting.
+  </p>
+  <button id="dialogCloseButton" autofocus>✓</button>
+</dialog>
 
 <div class="imageDisplay">
   <img src="" id="hoursImg" />

@@ -1,9 +1,24 @@
 const hoursDiplay = document.getElementById("hoursImg");
 const minutesDiplay = document.getElementById("minutesImg");
 const secondsDiplay = document.getElementById("secondsImg");
+const synth = new Tone.Synth().toDestination();
 const season = "summer";
 
-setInterval(checkTime, 1000);
+/* find modal */
+let introModal = document.getElementById("introDialog");
+/* to get the backdrop working we need to open the modal with js */
+document.getElementById("introDialog").showModal();
+/* find modal close button and add an eventlistener */
+document.getElementById("dialogCloseButton").addEventListener("click", () => {
+  introModal.close();
+});
+/* finally we want to initialize the synthesizer when the modal is closed */
+/* because this can be through the above button, or by pressing esc, we tie it to the actual close event */
+introModal.addEventListener("close", startClock);
+
+function startClock() {
+  setInterval(checkTime, 1000);
+}
 
 function checkTime() {
   let currentTimeFull = Date.now();
@@ -53,4 +68,5 @@ function timeUI(month, hours, minutes, seconds) {
     minutesDiplay.src = `assets/${season}${minutes}.png`;
     secondsDiplay.src = `assets/${season}${seconds}.png`;
   }
+  synth.triggerAttackRelease(`C4`, "28n");
 }
