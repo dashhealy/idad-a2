@@ -1,17 +1,38 @@
 //create a synth and connect it to the main output (your speakers)
 const synth = new Tone.Synth().toDestination();
 
-/* find modal */
-let introModal = document.getElementById("introDialog");
-/* to get the backdrop working we need to open the modal with js */
-document.getElementById("introDialog").showModal();
-/* find modal close button and add an eventlistener */
-document.getElementById("dialogCloseButton").addEventListener("click", () => {
-  introModal.close();
-});
-/* finally we want to initialize the synthesizer when the modal is closed */
-/* because this can be through the above button, or by pressing esc, we tie it to the actual close event */
-introModal.addEventListener("close", playTime);
+const notes = [
+  "a1",
+  "b1",
+  "c1",
+  "d1",
+  "e1",
+  "f1",
+  "g1",
+  "a2",
+  "b2",
+  "c2",
+  "d2",
+  "e2",
+  "f2",
+  "g2",
+  "a3",
+  "b3",
+  "c3",
+  "d3",
+  "e3",
+  "f3",
+  "g3",
+  "a4",
+  "b4",
+  "c4",
+  "d4",
+  "e4",
+  "f4",
+  "g4",
+  "a5",
+  "b5",
+];
 
 function playTime() {
   let currentTimeFull = Date.now();
@@ -21,6 +42,15 @@ function playTime() {
   let minutes = systemDate.getMinutes();
   let seconds = systemDate.getSeconds();
 
-  //play a middle 'C' for the duration of an 8th note
-  synth.triggerAttackRelease(`C4`, "28n");
+  if (seconds > 29) {
+    seconds = seconds - 30;
+  }
+
+  let secNote = notes[seconds];
+  let minNote = notes[minutes];
+  let hourNote = notes[hours];
+
+  synth.triggerAttackRelease(`${secNote}`, "28n");
+  // synth.triggerAttackRelease(`${minNote}`, "28n");
+  // synth.triggerAttackRelease(`${hourNote}`, "28n");
 }

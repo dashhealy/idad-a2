@@ -1,7 +1,6 @@
 const hoursDiplay = document.getElementById("hoursImg");
 const minutesDiplay = document.getElementById("minutesImg");
 const secondsDiplay = document.getElementById("secondsImg");
-const synth = new Tone.Synth().toDestination();
 const season = "summer";
 
 /* find modal */
@@ -18,6 +17,7 @@ introModal.addEventListener("close", startClock);
 
 function startClock() {
   setInterval(checkTime, 1000);
+  setInterval(playTime, 1000);
 }
 
 function checkTime() {
@@ -68,5 +68,4 @@ function timeUI(month, hours, minutes, seconds) {
     minutesDiplay.src = `assets/${season}${minutes}.png`;
     secondsDiplay.src = `assets/${season}${seconds}.png`;
   }
-  synth.triggerAttackRelease(`C4`, "28n");
 }
