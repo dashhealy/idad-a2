@@ -51,6 +51,6 @@ function playTime() {
   let hourNote = notes[hours];
 
   synth.triggerAttackRelease(`${secNote}`, "28n");
-  // synth.triggerAttackRelease(`${minNote}`, "28n");
-  // synth.triggerAttackRelease(`${hourNote}`, "28n");
+  synth.triggerAttackRelease(`${minNote}`, "28n");
+  synth.triggerAttackRelease(`${hourNote}`, "28n");
 }
