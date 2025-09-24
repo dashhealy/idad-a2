@@ -5,6 +5,7 @@ let season = "summer";
 
 let currentTimeFull = Date.now();
 let systemDate = new Date(currentTimeFull);
+
 let hours = systemDate.getHours();
 let minutes = systemDate.getMinutes();
 let month = systemDate.getMonth();
@@ -51,6 +52,7 @@ introModal.addEventListener("close", startClock);
 function startClock() {
   hourMinUI();
   setInterval(checkTime, 1000);
+  setInterval(playTime, 1000);
 }
 
 function hourMinUI() {
@@ -65,10 +67,9 @@ function checkTime() {
   let currentTimeFull = Date.now();
   let systemDate = new Date(currentTimeFull);
 
-  let seconds = Math.floor(systemDate.getSeconds());
+  let seconds = systemDate.getSeconds();
 
   timeUI(seconds);
-  playTime(seconds);
 }
 
 function timeUI(seconds) {
