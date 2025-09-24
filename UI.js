@@ -57,8 +57,14 @@ function startClock() {
 }
 
 function hourMinUI() {
+  if (minutes === 60) {
+    minutes = minutes - 60;
+  }
   if (minutes === 0) {
     hours = hours + 1;
+  }
+  if (hours === 24) {
+    hours = hours - 24;
   }
   hoursDiplay.src = `assets/${season}${hours}.png`;
   minutesDiplay.src = `assets/${season}${minutes}.png`;
