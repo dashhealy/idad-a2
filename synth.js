@@ -1,5 +1,21 @@
 //create a synth and connect it to the main output (your speakers)
-const synth = new Tone.Synth().toDestination();
+let waveform = "fatsawtooth";
+
+const synth = new Tone.Synth({
+  oscillator: {
+    type: `${waveform}`,
+    count: 3,
+    spread: 10,
+  },
+  // envelope: {
+  //   attack: 0.01,
+  //   decay: 0.1,
+  //   sustain: 0.5,
+  //   release: 0.1,
+  //   attackCurve: "exponential",
+  // },
+}).toDestination();
+let now = Tone.now();
 
 const notes = [
   "a1",
@@ -35,13 +51,6 @@ const notes = [
 ];
 
 function playTime() {
-  let currentTimeFull = Date.now();
-  let systemDate = new Date(currentTimeFull);
-
-  let hours = systemDate.getHours();
-  let minutes = systemDate.getMinutes();
-  let seconds = systemDate.getSeconds();
-
   if (seconds > 29) {
     seconds = seconds - 30;
   }
@@ -51,6 +60,9 @@ function playTime() {
   let hourNote = notes[hours];
 
   synth.triggerAttackRelease(`${secNote}`, "28n");
-  synth.triggerAttackRelease(`${minNote}`, "28n");
-  synth.triggerAttackRelease(`${hourNote}`, "28n");
+  console.log(waveform);
+  // synth.triggerAttack(`${secNote}`, "28n", now);
+  // synth.triggerAttack(`${minNote}`, "28n", now + 0.33);
+  // synth.triggerAttack(`${hourNote}`, "28n", now + 0.66);
+  // synth.triggerRelease([`${secNote}`, `${minNote}`, `${hourNote}`], now + 0.99);
 }
