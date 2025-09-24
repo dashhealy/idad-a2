@@ -8,6 +8,7 @@ let systemDate = new Date(currentTimeFull);
 
 let hours = systemDate.getHours();
 let minutes = systemDate.getMinutes();
+let seconds = systemDate.getSeconds();
 let month = systemDate.getMonth();
 month = month + 1;
 
@@ -67,7 +68,7 @@ function checkTime() {
   let currentTimeFull = Date.now();
   let systemDate = new Date(currentTimeFull);
 
-  let seconds = systemDate.getSeconds();
+  seconds = systemDate.getSeconds();
 
   timeUI(seconds);
 }
