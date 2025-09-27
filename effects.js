@@ -3,29 +3,62 @@ const buttonTwo = document.getElementById("buttonTwo");
 const buttonThree = document.getElementById("buttonThree");
 let crusher = new Tone.BitCrusher(4).toDestination();
 
-vol = -20;
+vol = -10;
 synth.volume.value = `${vol}`;
 
-buttonOne.addEventListener("click", triangle);
+buttonOne.addEventListener("click", effectOne);
 
-function triangle() {
+function effectOne() {
   synth.set({
-    oscillator: { type: "triangle" },
+    oscillator: {
+      type: "sine",
+      count: 3,
+      spread: 10,
+    },
+    envelope: {
+      attack: 0.01,
+      decay: 0.1,
+      sustain: 0.2,
+      release: 0.4,
+      attackCurve: "exponential",
+    },
   });
 }
 
-buttonTwo.addEventListener("click", fatsawtooth);
+buttonTwo.addEventListener("click", effectTwo);
 
-function fatsawtooth() {
+function effectTwo() {
   synth.set({
-    oscillator: { type: "fatsawtooth" },
+    oscillator: {
+      type: "fatsawtooth",
+      count: 3,
+      spread: 10,
+    },
+    envelope: {
+      attack: 0.3,
+      decay: 0.1,
+      sustain: 0.5,
+      release: 0.1,
+      attackCurve: "exponential",
+    },
   });
 }
 
-buttonThree.addEventListener("click", square);
+buttonThree.addEventListener("click", effectThree);
 
-function square() {
+function effectThree() {
   synth.set({
-    oscillator: { type: "fatsquare" },
+    oscillator: {
+      type: "square",
+      count: 3,
+      spread: 10,
+    },
+    envelope: {
+      attack: 0.01,
+      decay: 0.1,
+      sustain: 0.1,
+      release: 0.1,
+      attackCurve: "exponential",
+    },
   });
 }
