@@ -3,6 +3,7 @@ const buttonTwo = document.getElementById("buttonTwo");
 const buttonThree = document.getElementById("buttonThree");
 let crusher = new Tone.BitCrusher(4).toDestination();
 
+const volSlider = document.getElementById("volume");
 vol = -10;
 synth.volume.value = `${vol}`;
 
@@ -62,3 +63,12 @@ function effectThree() {
     },
   });
 }
+
+volSlider.addEventListener("input", (e) => {
+  vol = +e.target.value;
+  synth.volume.value = `${vol}`;
+});
+
+const scale = (num, in_min, in_max, out_min, out_max) => {
+  return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
+};
