@@ -65,8 +65,7 @@ function effectThree() {
 }
 
 volSlider.addEventListener("input", (e) => {
-  vol = +e.target.value;
-  synth.volume.value = `${vol}`;
+  synth.volume.value = e.target.value;
 });
 
 const scale = (num, in_min, in_max, out_min, out_max) => {
