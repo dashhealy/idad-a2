@@ -53,7 +53,7 @@ introModal.addEventListener("close", startClock);
 function startClock() {
   hourMinUI();
   setInterval(checkTime, 1000);
-  setInterval(playTime, 1000);
+  playTime();
 }
 
 function hourMinUI() {
