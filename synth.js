@@ -1,5 +1,19 @@
 //create a synth and connect it to the main output (your speakers)
-const synth = new Tone.Synth().toDestination();
+let synth = new Tone.Synth({
+  oscillator: {
+    type: "triangle",
+    count: 3,
+    spread: 10,
+  },
+  envelope: {
+    attack: 0.01,
+    decay: 0.1,
+    sustain: 0.2,
+    release: 0.4,
+    attackCurve: "exponential",
+  },
+}).toDestination();
+let now = Tone.now();
 
 const notes = [
   "a1",
@@ -35,13 +49,6 @@ const notes = [
 ];
 
 function playTime() {
-  let currentTimeFull = Date.now();
-  let systemDate = new Date(currentTimeFull);
-
-  let hours = systemDate.getHours();
-  let minutes = systemDate.getMinutes();
-  let seconds = systemDate.getSeconds();
-
   if (seconds > 29) {
     seconds = seconds - 30;
   }
@@ -50,7 +57,6 @@ function playTime() {
   let minNote = notes[minutes];
   let hourNote = notes[hours];
 
-  synth.triggerAttackRelease(`${secNote}`, "28n");
-  // synth.triggerAttackRelease(`${minNote}`, "28n");
-  // synth.triggerAttackRelease(`${hourNote}`, "28n");
+  synth.triggerAttackRelease(`c4`, "8n");
+  // synth.triggerAttackRelease(`${secNote}`, "28n");
 }

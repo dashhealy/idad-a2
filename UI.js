@@ -1,7 +1,42 @@
 const hoursDiplay = document.getElementById("hoursImg");
 const minutesDiplay = document.getElementById("minutesImg");
 const secondsDiplay = document.getElementById("secondsImg");
-const season = "summer";
+let season = "summer";
+
+let currentTimeFull = Date.now();
+let systemDate = new Date(currentTimeFull);
+
+let hours = systemDate.getHours();
+let minutes = systemDate.getMinutes();
+let seconds = systemDate.getSeconds();
+let month = systemDate.getMonth();
+month = month + 1;
+
+seasonCheck();
+
+function seasonCheck() {
+  if (month === 12 || month === 1 || month === 2) {
+    season = "Summer";
+    document.documentElement.style.setProperty("--col01", "#eaca63");
+    document.documentElement.style.setProperty("--col02", "#f3ebab");
+    document.documentElement.style.setProperty("--col03", "#ffcc66");
+  } else if (month === 3 || month === 4 || month === 5) {
+    season = "Autumn";
+    document.documentElement.style.setProperty("--col01", "#e89f49");
+    document.documentElement.style.setProperty("--col02", "#f4cc90");
+    document.documentElement.style.setProperty("--col03", "#e5ac73");
+  } else if (month === 6 || month === 7 || month === 8) {
+    season = "Winter";
+    document.documentElement.style.setProperty("--col01", "#3366cc");
+    document.documentElement.style.setProperty("--col02", "#9ed3f1");
+    document.documentElement.style.setProperty("--col03", "#6c94e6");
+  } else {
+    season = "Spring";
+    document.documentElement.style.setProperty("--col01", "#00916e");
+    document.documentElement.style.setProperty("--col02", "#c8ffbe");
+    document.documentElement.style.setProperty("--col03", "#6dd6ac");
+  }
+}
 
 /* find modal */
 let introModal = document.getElementById("introDialog");
@@ -16,56 +51,38 @@ document.getElementById("dialogCloseButton").addEventListener("click", () => {
 introModal.addEventListener("close", startClock);
 
 function startClock() {
+  hourMinUI();
   setInterval(checkTime, 1000);
   setInterval(playTime, 1000);
+}
+
+function hourMinUI() {
+  if (minutes === 60) {
+    minutes = minutes - 60;
+  }
+  if (minutes === 0) {
+    hours = hours + 1;
+  }
+  if (hours === 24) {
+    hours = hours - 24;
+  }
+  hoursDiplay.src = `assets/${season}${hours}.png`;
+  minutesDiplay.src = `assets/${season}${minutes}.png`;
 }
 
 function checkTime() {
   let currentTimeFull = Date.now();
   let systemDate = new Date(currentTimeFull);
 
-  let hours = systemDate.getHours();
-  let minutes = systemDate.getMinutes();
-  let seconds = systemDate.getSeconds();
+  seconds = systemDate.getSeconds();
 
-  let month = systemDate.getMonth();
-  month = month + 1;
-
-  timeUI(month, hours, minutes, seconds);
+  timeUI(seconds);
 }
 
-function timeUI(month, hours, minutes, seconds) {
-  if (month === 12 || month === 1 || month === 2) {
-    let season = "Summer";
-    document.documentElement.style.setProperty("--col01", "#eaca63");
-    document.documentElement.style.setProperty("--col02", "#f3ebab");
-    document.documentElement.style.setProperty("--col03", "#ffcc66");
-    hoursDiplay.src = `assets/${season}${hours}.png`;
-    minutesDiplay.src = `assets/${season}${minutes}.png`;
-    secondsDiplay.src = `assets/${season}${seconds}.png`;
-  } else if (month === 3 || month === 4 || month === 5) {
-    let season = "Autumn";
-    document.documentElement.style.setProperty("--col01", "#e89f49");
-    document.documentElement.style.setProperty("--col02", "#f4cc90");
-    document.documentElement.style.setProperty("--col03", "#e5ac73");
-    hoursDiplay.src = `assets/${season}${hours}.png`;
-    minutesDiplay.src = `assets/${season}${minutes}.png`;
-    secondsDiplay.src = `assets/${season}${seconds}.png`;
-  } else if (month === 6 || month === 7 || month === 8) {
-    let season = "Winter";
-    document.documentElement.style.setProperty("--col01", "#3366cc");
-    document.documentElement.style.setProperty("--col02", "#9ed3f1");
-    document.documentElement.style.setProperty("--col03", "#6c94e6");
-    hoursDiplay.src = `assets/${season}${hours}.png`;
-    minutesDiplay.src = `assets/${season}${minutes}.png`;
-    secondsDiplay.src = `assets/${season}${seconds}.png`;
-  } else {
-    let season = "Spring";
-    document.documentElement.style.setProperty("--col01", "#00916e");
-    document.documentElement.style.setProperty("--col02", "#c8ffbe");
-    document.documentElement.style.setProperty("--col03", "#6dd6ac");
-    hoursDiplay.src = `assets/${season}${hours}.png`;
-    minutesDiplay.src = `assets/${season}${minutes}.png`;
-    secondsDiplay.src = `assets/${season}${seconds}.png`;
+function timeUI(seconds) {
+  if (seconds === 0) {
+    minutes = minutes + 1;
+    hourMinUI();
   }
+  secondsDiplay.src = `assets/${season}${seconds}.png`;
 }
