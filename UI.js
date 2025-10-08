@@ -76,6 +76,7 @@ function checkTime() {
 
   seconds = systemDate.getSeconds();
 
+  bar = [notes[seconds], notes[minutes], notes[hours]];
   timeUI(seconds);
 }
 

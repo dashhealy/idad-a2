@@ -52,10 +52,9 @@ const notes = [
 // let minNote = notes[minutes];
 // let hourNote = notes[hours];
 
-let bar = ["C4", "E4", "G4"];
+// let bar = ["C4", "E4", "G4"];
 // let bar = [`${hourNote}`, `${minNote}`, `${secNote}`];
-// let bar = [notes[hours], notes[minutes], notes[seconds]];
-// bar = [notes[seconds], notes[minutes], notes[hours]];
+let bar = [notes[hours], notes[minutes], notes[seconds]];
 let index = 0;
 
 function playTime() {
@@ -63,9 +62,9 @@ function playTime() {
     seconds = seconds - 30;
   }
   const loop = new Tone.Loop((time) => {
-    synth.triggerAttackRelease(bar[index], "8n", time);
+    synth.triggerAttackRelease(bar[index], "16n", time);
     index = (index + 1) % bar.length; // wrap around
-  }, 1);
+  }, 0.33);
   index = 0;
   Tone.Transport.start();
   loop.start(0);
