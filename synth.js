@@ -58,9 +58,6 @@ let bar = [notes[hours], notes[minutes], notes[seconds]];
 let index = 0;
 
 function playTime() {
-  if (seconds > 29) {
-    seconds = seconds - 30;
-  }
   const loop = new Tone.Loop((time) => {
     synth.triggerAttackRelease(bar[index], "16n", time);
     index = (index + 1) % bar.length; // wrap around

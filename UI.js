@@ -76,7 +76,6 @@ function checkTime() {
 
   seconds = systemDate.getSeconds();
 
-  bar = [notes[seconds], notes[minutes], notes[hours]];
   timeUI(seconds);
 }
 
@@ -86,4 +85,8 @@ function timeUI(seconds) {
     hourMinUI();
   }
   secondsDiplay.src = `assets/${season}${seconds}.png`;
+  if (seconds > 29) {
+    seconds = seconds - 30;
+  }
+  bar = [notes[seconds], notes[minutes], notes[hours]];
 }
