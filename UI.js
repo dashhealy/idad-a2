@@ -20,21 +20,29 @@ function seasonCheck() {
     document.documentElement.style.setProperty("--col01", "#eaca63");
     document.documentElement.style.setProperty("--col02", "#f3ebab");
     document.documentElement.style.setProperty("--col03", "#ffcc66");
+    document.documentElement.style.backgroundImage =
+      "url('assets/SummerBG.png')";
   } else if (month === 3 || month === 4 || month === 5) {
     season = "Autumn";
     document.documentElement.style.setProperty("--col01", "#e89f49");
     document.documentElement.style.setProperty("--col02", "#f4cc90");
     document.documentElement.style.setProperty("--col03", "#e5ac73");
+    document.documentElement.style.backgroundImage =
+      "url('assets/AutumnBG.png')";
   } else if (month === 6 || month === 7 || month === 8) {
     season = "Winter";
     document.documentElement.style.setProperty("--col01", "#3366cc");
     document.documentElement.style.setProperty("--col02", "#9ed3f1");
     document.documentElement.style.setProperty("--col03", "#6c94e6");
+    document.documentElement.style.backgroundImage =
+      "url('assets/WinterBG.png')";
   } else {
     season = "Spring";
     document.documentElement.style.setProperty("--col01", "#00916e");
     document.documentElement.style.setProperty("--col02", "#c8ffbe");
     document.documentElement.style.setProperty("--col03", "#6dd6ac");
+    document.documentElement.style.backgroundImage =
+      "url('assets/SpringBG.png')";
   }
 }
 

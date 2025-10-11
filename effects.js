@@ -100,10 +100,12 @@ function muteFunc() {
     synth.volume.value = -Infinity;
     muted = true;
     muteButton.textContent = `⏽`;
+    muteButton.classList.toggle("pressed");
   } else {
     synth.volume.value = volSlider.value;
     muted = false;
     muteButton.textContent = `⭘`;
+    muteButton.classList.toggle("pressed");
   }
 }
 
@@ -113,9 +115,11 @@ function toggleReverb() {
   if (verb === false) {
     reverb.wet.value = 1;
     verb = true;
+    reverbButton.classList.toggle("pressed");
   } else {
     reverb.wet.value = 0;
     verb = false;
+    reverbButton.classList.toggle("pressed");
   }
 }
 
