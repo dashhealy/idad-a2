@@ -4,6 +4,8 @@
   --col03: #6dd6ac;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
 body {
   background-color: var(--col02);
   color: var(--col01);
@@ -93,6 +95,8 @@ dialog[open] {
   gap: 1rem;
   border-radius: 1rem;
   font-size: 1rem;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
 }
 dialog::backdrop {
   background-color: rgba(
