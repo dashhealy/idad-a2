@@ -12,8 +12,11 @@ let synth = new Tone.Synth({
     release: 0.4,
     attackCurve: "exponential",
   },
-}).toDestination();
+});
 let now = Tone.now();
+
+let reverb = new Tone.Reverb(2);
+reverb.wet.value = 0;
 
 const notes = [
   "a1",

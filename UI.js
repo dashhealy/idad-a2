@@ -51,6 +51,7 @@ document.getElementById("dialogCloseButton").addEventListener("click", () => {
 introModal.addEventListener("close", startClock);
 
 function startClock() {
+  synth.chain(reverb, Tone.Destination);
   hourMinUI();
   setInterval(checkTime, 1000);
   playTime();

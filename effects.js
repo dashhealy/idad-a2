@@ -3,12 +3,13 @@ const buttonTwo = document.getElementById("buttonTwo");
 const buttonThree = document.getElementById("buttonThree");
 const buttonFour = document.getElementById("buttonFour");
 let muteButton = document.getElementById("mute");
-let crusher = new Tone.BitCrusher(4).toDestination();
+let reverbButton = document.getElementById("reverb");
 
 const volSlider = document.getElementById("volume");
 vol = -17;
 synth.volume.value = `${vol}`;
 
+let verb = false;
 let muted = false;
 
 buttonOne.addEventListener("click", effectOne);
@@ -108,5 +109,14 @@ function muteFunc() {
 
 muteButton.addEventListener("click", muteFunc);
 
-// muteButton.textContent = `\u1F508\uFE0E`;
-// muteButton.textContent = `\u1F507\uFE0E`;
+function toggleReverb() {
+  if (verb === false) {
+    reverb.wet.value = 1;
+    verb = true;
+  } else {
+    reverb.wet.value = 0;
+    verb = false;
+  }
+}
+
+reverbButton.addEventListener("click", toggleReverb);
