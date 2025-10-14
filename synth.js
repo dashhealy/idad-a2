@@ -1,4 +1,3 @@
-//create a synth and connect it to the main output (your speakers)
 let synth = new Tone.Synth({
   oscillator: {
     type: "triangle",
@@ -19,13 +18,6 @@ let reverb = new Tone.Reverb(2);
 reverb.wet.value = 0;
 
 const notes = [
-  "a1",
-  "b1",
-  "c1",
-  "d1",
-  "e1",
-  "f1",
-  "g1",
   "a2",
   "b2",
   "c2",
@@ -49,25 +41,24 @@ const notes = [
   "g4",
   "a5",
   "b5",
+  "c5",
+  "d5",
+  "e5",
+  "f5",
+  "g5",
+  "a6",
+  "b6",
 ];
 
-// let secNote = notes[seconds];
-// let minNote = notes[minutes];
-// let hourNote = notes[hours];
-
-// let bar = ["C4", "E4", "G4"];
-// let bar = [`${hourNote}`, `${minNote}`, `${secNote}`];
 let bar = [notes[hours], notes[minutes], notes[seconds]];
 let index = 0;
 
 function playTime() {
   const loop = new Tone.Loop((time) => {
     synth.triggerAttackRelease(bar[index], "16n", time);
-    index = (index + 1) % bar.length; // wrap around
+    index = (index + 1) % bar.length;
   }, 0.33);
   index = 0;
   Tone.Transport.start();
   loop.start(0);
-
-  // synth.triggerAttackRelease(`${secNote}`, "28n");
 }

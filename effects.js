@@ -18,15 +18,6 @@ function effectOne() {
   synth.set({
     oscillator: {
       type: "sine",
-      count: 3,
-      spread: 10,
-    },
-    envelope: {
-      attack: 0.01,
-      decay: 0.1,
-      sustain: 0.2,
-      release: 0.4,
-      attackCurve: "exponential",
     },
   });
 }
@@ -37,15 +28,6 @@ function effectTwo() {
   synth.set({
     oscillator: {
       type: "fatsawtooth",
-      count: 3,
-      spread: 10,
-    },
-    envelope: {
-      attack: 0.3,
-      decay: 0.1,
-      sustain: 0.5,
-      release: 0.1,
-      attackCurve: "exponential",
     },
   });
 }
@@ -56,15 +38,6 @@ function effectThree() {
   synth.set({
     oscillator: {
       type: "square",
-      count: 3,
-      spread: 10,
-    },
-    envelope: {
-      attack: 0.01,
-      decay: 0.1,
-      sustain: 0.1,
-      release: 0.1,
-      attackCurve: "exponential",
     },
   });
 }
@@ -75,15 +48,6 @@ function effectFour() {
   synth.set({
     oscillator: {
       type: "triangle",
-      count: 3,
-      spread: 10,
-    },
-    envelope: {
-      attack: 0.01,
-      decay: 0.1,
-      sustain: 0.1,
-      release: 0.1,
-      attackCurve: "exponential",
     },
   });
 }

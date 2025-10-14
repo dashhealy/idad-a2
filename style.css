@@ -1,10 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
 :root {
   --col02: #c8ffbe;
   --col01: #00916e;
   --col03: #6dd6ac;
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
 body {
   background-color: var(--col02);
@@ -85,7 +85,7 @@ button:active {
 }
 
 dialog[open] {
-  margin: auto; /* place in centre */
+  margin: auto;
   padding: 1rem;
   background-color: var(--col01);
   color: var(--col02);
@@ -99,12 +99,7 @@ dialog[open] {
   text-align: center;
 }
 dialog::backdrop {
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* background overlay when modal is open */
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #dialogCloseButton {
